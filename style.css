@@ -1,0 +1,70 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-size: 18px;
+}
+.header {
+    height: 200px;
+    background-color: #ff8000;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-color: rgba(0, 0, 0, 0.062);
+}
+
+.flag {
+    height: 40px;
+    width: 80px;
+}
+
+/* Links Menu rechts Warenkorb */
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #fcfcfc; 
+  
+}
+.restaurant {
+    display: flex;  
+    height: 100px;
+    width: 100%;
+    background-color: white;
+}
+
+.headline {
+    width: 700px;
+    background-color: #fcfcfc;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 8px;
+    gap: 8px;
+}
+
+.basket {
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+    width: 350px;
+    border-left-style: 1px solid;
+    border-color: rgba(0, 0, 0, 0.062);
+}

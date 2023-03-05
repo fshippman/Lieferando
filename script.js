@@ -1,37 +1,46 @@
-// Bitte hier Code eingeben
-let menus = ["Pizza Salami"];
-let prices = [6.99];
-let amounts = [1];
-
-function getValueFromInput(i) {
-  return document.getElementById(i).value;
+async function includeHTML() {
+    let includeElements = document.querySelectorAll('[w3-include-html]');
+    for (let i = 0; i < includeElements.length; i++) {
+        const element = includeElements[i];
+        file = element.getAttribute("w3-include-html"); // "includes/header.html"
+        let resp = await fetch(file);
+        if (resp.ok) {
+            element.innerHTML = await resp.text();
+        } else {
+            element.innerHTML = 'Page not found';
+        }
+    }
 }
 
-function getMenuFromInput() {
-  return getValueFromInput('menu').trim()
+let foods = [{
+    'name': 'Pizza Margherita',
+    'description': 'mit Käse und Tomatensouce',
+    'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
+    'price': '7.99',
+},
+{
+    'name': 'Pizza Margherita',
+    'description': 'mit Käse und Tomatensouce',
+    'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
+    'price': '7.99',
+}];
+
+function show() {
+    document.getElementById('menu').innerHTML += '';
+    for (let i = 0; i < foods.length; i++) {
+        const food = foods[i];
+        document.getElementById('menu').innerHTML += createShowHTML(i);
+    }
 }
 
-function getPriceFromInput() {
-  return +getValueFromInput('price')
+function createShowHTML(i) {
+    const food = foods[i];
+    return /*html*/`
+    <div class="card">
+    <div>${food['name']}</div>
+    <div>${food['description']}</div>
+    <div>${food['choice']}</div>
+    <div>${food['price']}</div>
+    </div>
+    `;
 }
-
-function getMenuIndex(menu) {
-  return menus.indexOf(menu);
-}
-
-function onAddMenu() {
-  let menu = getMenuFromInput()
-  let index = getMenuIndex(menu)
-  if (index == -1) {
-    let price = getPriceFromInput()
-    menus.push(menu)
-    prices.push(price)
-    amounts.push(1)
-  } else {
-    amounts[index] += 1
-  }
-}
-
-
-
-

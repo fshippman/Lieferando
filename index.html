@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="includeHTML(), show()">
+
+    <div w3-include-html="templates/header.html"></div>
+
+    <div class="content">
+        <div id="menu">
+            <div class="restaurant">
+                Pizzeria 123
+                <div class="restaurant-links"></div>
+                <a href="#">Pizza</a>
+                <a href="#">Pizza</a>
+                <a href="#">Pizza</a>
+                <a href="#">Pizza</a>
+                <a href="#">Pizza</a>
+            </div>
+            <div class="headline">
+                <h2>Pizza</h1>
+            </div>
+        </div>
+        <div class="basket">
+            Warenkorb
+        </div>                                  
+    </div>
+
+    <div w3-include-html="templates/footer.html"> </div>
+
+</body>
+</html>
