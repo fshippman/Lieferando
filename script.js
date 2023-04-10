@@ -44,10 +44,10 @@ let foods = [{
 }];
 
 function show() {
-    document.getElementById('menu').innerHTML += '';
+    document.getElementById('main').innerHTML += '';
     for (let i = 0; i < foods.length; i++) {
         const food = foods[i];
-        document.getElementById('menu').innerHTML += createShowHTML(i);
+        document.getElementById('main').innerHTML += createShowHTML(i);
     }
 }
 

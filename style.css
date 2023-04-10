@@ -11,9 +11,7 @@ body {
 a {
     cursor: pointer;
 }
-a:hover{
-    
-} 
+
 .header {
     height: 50px;
     background-color: #ff8000;
@@ -61,7 +59,7 @@ a:hover{
     background-color: #fcfcfc; 
 }
 
-#menu {
+#main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,23 +67,21 @@ a:hover{
     background-color: #fcfcfc; 
   
 }
-.restaurant-bg {
-    background-color: white;
-   
-}
+
 .restaurant {
-    display: flex;  
-    flex-direction: column;
-    align-items: flex-start;
-    width: 700px;
     background-color: white;
-    margin: 8px;
-    padding: 16px;
+    display: flex;
+}
+.rating-count a {
+    color: black;
+}
+.rating-count a:hover {
+    cursor: pointer;
 }
 
-.headline {
+.headline-left {
     width: 700px;
-    background-color: #fcfcfc;
+    
 }
 
 .card {
