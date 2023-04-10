@@ -55,12 +55,12 @@ function createShowHTML(i) {
     const food = foods[i];
     return /*html*/`
     <div class="card">
-    <a>
-    <div>${food['name']}</div>
-    <div>${food['description']}</div>
-    <div>${food['choice']}</div>
-    <div>${food['price']}</div>
+<!--     <a> -->
+        <h3>${food['name']}</h3>
+        <div>${food['description']}</div>
+        <div>${food['choice']}</div>
+        <span>${food['price']}</span>
     </div>
-    </a>
+  <!--   </a> -->
     `;
 }
