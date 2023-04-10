@@ -23,6 +23,24 @@ let foods = [{
     'description': 'mit Käse und Tomatensouce',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '7.99',
+},
+{
+    'name': 'Pizza Margherita',
+    'description': 'mit Käse und Tomatensouce',
+    'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
+    'price': '7.99',
+},
+{
+    'name': 'Pizza Margherita',
+    'description': 'mit Käse und Tomatensouce',
+    'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
+    'price': '7.99',
+},
+{
+    'name': 'Pizza Margherita',
+    'description': 'mit Käse und Tomatensouce',
+    'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
+    'price': '7.99',
 }];
 
 function show() {
@@ -37,10 +55,12 @@ function createShowHTML(i) {
     const food = foods[i];
     return /*html*/`
     <div class="card">
+    <a>
     <div>${food['name']}</div>
     <div>${food['description']}</div>
     <div>${food['choice']}</div>
     <div>${food['price']}</div>
     </div>
+    </a>
     `;
 }

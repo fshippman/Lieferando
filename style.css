@@ -8,6 +8,12 @@ body {
     font-size: 18px;
 }
 
+a {
+    cursor: pointer;
+}
+a:hover{
+    background-color: green;
+} 
 .header {
     height: 50px;
     background-color: #ff8000;
@@ -84,6 +90,10 @@ body {
     margin: 8px;
     padding: 4px;
     gap: 8px;
+}
+
+.card:hover {
+    background-color: yellow;
 }
 
 .basket {
