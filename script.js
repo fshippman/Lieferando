@@ -14,31 +14,31 @@ async function includeHTML() {
 
 let foods = [{
     'name': 'Pizza Margherita',
-    'description': 'mit Käse und Tomatensouce',
+    'description': 'mit Käse und Tomatensauce',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '7.99',
 },
 {
     'name': 'Pizza Margherita',
-    'description': 'mit Käse und Tomatensouce',
+    'description': 'mit Käse und Tomatensauce',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '7.99',
 },
 {
     'name': 'Pizza Margherita',
-    'description': 'mit Käse und Tomatensouce',
+    'description': 'mit Käse und Tomatensauce',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '7.99',
 },
 {
     'name': 'Pizza Margherita',
-    'description': 'mit Käse und Tomatensouce',
+    'description': 'mit Käse und Tomatensauce',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '7.99',
 },
 {
     'name': 'Pizza Margherita',
-    'description': 'mit Käse und Tomatensouce',
+    'description': 'mit Käse und Tomatensauce',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '7.99',
 }];
