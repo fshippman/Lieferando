@@ -126,12 +126,52 @@ a {
     flex-direction: column;
     padding: 16px;
 }
-
+.ratings {
+    display: flex;
+    width: 230px;
+    align-items: center;
+}
+.stars {
+    display: flex;
+    margin-right: 4px;
+}
+.stars img {
+    height: 20px;
+    width: 20px;
+}
 .rating-count a {
     color: black;
+    white-space: nowrap
 }
 .rating-count a:hover {
     cursor: pointer;
+}
+.delivery-container {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    gap: 8px;
+    white-space: nowrap;
+}
+.delivery-container img {
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
+}
+.bike img {
+    height: 27px;
+    width: 27px;
+}
+.green {
+    color: #017A39;
+}
+.align-center{
+    display: flex;
+    align-items: center;
+}
+.description {
+    margin-top: 16px;
 }
 
 .headline-left {
