@@ -1,3 +1,19 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #6d6d6d; 
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -6,6 +22,7 @@ body {
     margin: 0;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
+    line-height: 1.5;
 }
 
 a {
@@ -46,8 +63,7 @@ a {
 
 .flag {
     height: 40px;
-    width: 80px;
-    
+    width: 80px;    
 }
 
 /* Links Menu rechts Warenkorb */
@@ -62,16 +78,15 @@ a {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #fcfcfc; 
-  
+    background-color: #fcfcfc;  
 }
+
 .stack {
     width: 100%;
     height: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
-   
 }
 
 .pizza-picture {
@@ -82,6 +97,7 @@ a {
     object-position: 50% 45%;
     z-index: 1;
 }
+
 .pizza-picture img {
     height: 320px;
     width: 100%;
@@ -98,7 +114,6 @@ a {
     display: flex;
     z-index: 1;
     top: 325px;
-    
 }
 
 .pizza-logo img {
@@ -107,9 +122,7 @@ a {
     object-fit: cover;
     object-position: 39% 25%;
     border-radius: 10px;
-    
 }
-
 
 .info-bg{
     display: flex;
@@ -117,6 +130,7 @@ a {
     background-color: white;
     width: 100%;
 }
+
 .info {
     background-color: white;
     display: flex;
@@ -126,26 +140,32 @@ a {
     flex-direction: column;
     padding: 16px;
 }
+
 .ratings {
     display: flex;
     width: 230px;
     align-items: center;
 }
+
 .stars {
     display: flex;
     margin-right: 4px;
 }
+
 .stars img {
     height: 20px;
     width: 20px;
 }
+
 .rating-count a {
     color: black;
     white-space: nowrap
 }
+
 .rating-count a:hover {
     cursor: pointer;
 }
+
 .delivery-container {
     width: 500px;
     display: flex;
@@ -154,29 +174,33 @@ a {
     gap: 8px;
     white-space: nowrap;
 }
+
 .delivery-container img {
     height: 20px;
     width: 20px;
     margin-right: 4px;
 }
+
 .bike img {
     height: 27px;
     width: 27px;
 }
+
 .green {
     color: #017A39;
 }
+
 .align-center{
     display: flex;
     align-items: center;
 }
+
 .description {
     margin-top: 16px;
 }
 
 .headline-left {
-    width: 700px;
-    
+    width: 700px;    
 }
 
 .card {
@@ -196,14 +220,30 @@ a {
     cursor: pointer;
 }
 
-.basket {
+.basket-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 128px;
-    width: 400px;
+    gap: 48px;
+    width: 420px;
     border-left-style: 1px solid;
     border-color: rgba(0, 0, 0, 0.062);
     background-color: white;
+}
+
+.basket-container h2 {
+   margin: 20px;
+}
+
+.empty-basket-container {
+    margin: 20px;
+}
+
+.empty-basket-container h2 {
+    margin: 0;
+}
+
+.empty-basket-container img {
+    margin-bottom: 20px;
 }
