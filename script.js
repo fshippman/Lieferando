@@ -53,14 +53,37 @@ function show() {
 
 function createShowHTML(i) {
     const food = foods[i];
+    const name =  food['name'];
+    const price = food['price'];
+
     return /*html*/`
     <div class="card">
-<!--     <a> -->
-        <h3>${food['name']}</h3>
+        <h3>${name}</h3>
         <div>${food['description']}</div>
         <div>${food['choice']}</div>
-        <span>${food['price']}</span>
+        <span>${price}</span>
+       <button onclick="addToBasekt('${name}', ${price});">test</button>
     </div>
-  <!--   </a> -->
     `;
 }
+
+
+//--------------------------------------------------------------------------------
+let names = ['Pizza Salami'];
+let prices = [6.99];
+
+function addToBasekt(name, price) {
+  names.push(name);
+  prices.push(price);
+  
+}
+
+
+function updateShoppingBasket() {
+    let sum = 0;
+    for (let i = 0; i < prices.length; i++) {
+      sum += prices[i];
+    }
+    let finalSum = sum + 1;
+    document.getElementById().innerHTML = sum;
+  }
