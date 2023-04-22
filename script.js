@@ -69,13 +69,14 @@ function createShowHTML(i) {
 
 
 //--------------------------------------------------------------------------------
-let names = ['Pizza Salami'];
-let prices = [6.99];
+let names = [];
+let prices = [];
+
 
 function addToBasekt(name, price) {
   names.push(name);
   prices.push(price);
-  
+  updateShoppingBasket();
 }
 
 
@@ -85,5 +86,6 @@ function updateShoppingBasket() {
       sum += prices[i];
     }
     let finalSum = sum + 1;
-    document.getElementById().innerHTML = sum;
+    document.getElementById("basket").innerHTML = ` Hallo ${sum} und ${finalSum}
+    `;
   }
