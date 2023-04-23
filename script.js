@@ -14,12 +14,12 @@ async function includeHTML() {
 
 let foods = [{
     'name': 'Pizza Margherita',
-    'description': 'mit Käse und Tomatensauce',
+    'description': 'mit Käse, Tomatensauce und Schokolade',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '7.99',
 },
 {
-    'name': 'Pizza Margherita',
+    'name': 'Pizza balbla',
     'description': 'mit Käse und Tomatensauce',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '7.99',
@@ -53,7 +53,7 @@ function show() {
 
 function createShowHTML(i) {
     const food = foods[i];
-    const name =  food['name'];
+    const name = food['name'];
     const price = food['price'];
 
     return /*html*/`
@@ -68,24 +68,57 @@ function createShowHTML(i) {
 }
 
 
-//--------------------------------------------------------------------------------
-let names = [];
-let prices = [];
+//--------------------------------BASKET--------------------------------
 
+
+
+function addComment(index) {
+    let comment = getId(`textarea${index}`);
+    if (formIsValid(index)) {
+        posts[index]['comments'].push(comment.value);
+        comment.value = '';
+        renderComments(index);
+    } else {
+        openDialog();
+    }
+}
+
+
+
+
+/* let names = [];
+let prices = [];
+let counter = []; */
+
+let basket = [{
+    'counter': [],
+    'names': [],
+    'price': []
+}];
 
 function addToBasekt(name, price) {
-  names.push(name);
-  prices.push(price);
-  updateShoppingBasket();
+    basket[0]['names'].push(name);
+    basket[0]['price'].push(price);
+
+    /* names.push(name);
+    prices.push(price); */
+    document.getElementById("basket-dishes").innerHTML += ` ${basket[0]['names']} ${basket[0]['price']}<br>`;
+    hideEmptyBasket()
+    updateShoppingBasket();
 }
 
 
 function updateShoppingBasket() {
+
     let sum = 0;
     for (let i = 0; i < prices.length; i++) {
-      sum += prices[i];
+        sum += prices[i];
     }
     let finalSum = sum + 1;
-    document.getElementById("basket").innerHTML = ` Hallo ${sum} und ${finalSum}
-    `;
-  }
+
+    document.getElementById("basket-prices").innerHTML = ` Sum ${sum} <br> Final sum ${finalSum}`;
+}
+
+function hideEmptyBasket() {
+    document.getElementById("basket").classList.add('d-none');
+}

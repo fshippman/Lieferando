@@ -220,9 +220,7 @@ a {
     cursor: pointer;
 }
 
-#basekt {
-    
-}
+
 
 .basket-container {
     display: flex;
@@ -240,14 +238,18 @@ a {
    margin: 20px;
 }
 
-.empty-basket-container {
+#empty-basket-container {
     margin: 20px;
 }
 
-.empty-basket-container h2 {
+#empty-basket-container h2 {
     margin: 0;
 }
 
-.empty-basket-container img {
+#empty-basket-container img {
     margin-bottom: 20px;
+}
+
+.d-none {
+    display: none;
 }
