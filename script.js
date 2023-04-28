@@ -90,20 +90,18 @@ function addComment(index) {
 let prices = [];
 let counter = []; */
 
-let basket = [{
-    'counter': [],
-    'names': [],
-    'price': []
-}];
+let basket = [];
+
+
 
 function addToBasekt(name, price) {
-    basket[0]['names'].push(name);
-    basket[0]['price'].push(price);
+    basket.push({
+        'counter': 1,
+        'name': name,
+        'price': price
+    });
 
-    /* names.push(name);
-    prices.push(price); */
-    document.getElementById("basket-dishes").innerHTML += ` ${basket[0]['names']} ${basket[0]['price']}<br>`;
-    hideEmptyBasket()
+    hideEmptyBasket();
     updateShoppingBasket();
 }
 
@@ -111,8 +109,10 @@ function addToBasekt(name, price) {
 function updateShoppingBasket() {
 
     let sum = 0;
-    for (let i = 0; i < prices.length; i++) {
-        sum += prices[i];
+    document.getElementById("basket-dishes").innerHTML = '';
+    for (let i = 0; i < basket.length; i++) {
+        sum += basket[i]['price'];
+        document.getElementById("basket-dishes").innerHTML += ` ${basket[i]['name']} ${basket[i]['price']}<br>`;
     }
     let finalSum = sum + 1;
 
