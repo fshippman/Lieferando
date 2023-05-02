@@ -85,38 +85,60 @@ function addComment(index) {
 
 
 
-
-/* let names = [];
-let prices = [];
-let counter = []; */
-
 let basket = [];
 
-
-
 function addToBasekt(name, price) {
-    basket.push({
-        'counter': 1,
-        'name': name,
-        'price': price
-    });
+    let index = basket.findIndex(pizza => {
+        return pizza.name === name;
+    })
+    if (index === -1) {
+        basket.push({
+            'counter': 1,
+            'name': name,
+            'price': price
+        });
+    } else {
+        basket[index]['counter']++;
+    }
 
-    hideEmptyBasket();
+    updateShoppingBasket();
+}
+
+
+function removeFromBasket(i) {
+
+    if (basket[i]['counter'] > 1) {
+        basket[i]['counter']--;
+    } else {
+        basket.splice(i, 1)
+    }
     updateShoppingBasket();
 }
 
 
 function updateShoppingBasket() {
 
-    let sum = 0;
     document.getElementById("basket-dishes").innerHTML = '';
-    for (let i = 0; i < basket.length; i++) {
-        sum += basket[i]['price'];
-        document.getElementById("basket-dishes").innerHTML += ` ${basket[i]['name']} ${basket[i]['price']}<br>`;
+    if (basket.length < 1) {
+        document.getElementById("basket-prices").innerHTML = '';
+        showEmptyBasket();
+    } else {
+        hideEmptyBasket();
+        let sum = 0;
+        for (let i = 0; i < basket.length; i++) {
+            sum += basket[i]['counter'] * basket[i]['price'];
+            document.getElementById("basket-dishes").innerHTML += `${basket[i]['counter']} mal ${basket[i]['name']} ${basket[i]['price']} €<br><button onclick="removeFromBasket(${i});">test</button>`;
+        }
+        let finalSum = sum + 1;
+        sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
+        finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
+        document.getElementById("basket-prices").innerHTML = ` Sum ${sum} € <br> Final sum ${finalSum} €`;
     }
-    let finalSum = sum + 1;
+}
 
-    document.getElementById("basket-prices").innerHTML = ` Sum ${sum} <br> Final sum ${finalSum}`;
+
+function showEmptyBasket() {
+    document.getElementById("basket").classList.remove('d-none');
 }
 
 function hideEmptyBasket() {
