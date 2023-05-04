@@ -64,28 +64,13 @@ function createShowHTML(i) {
             <div>${food['choice']}</div>
             <span>${price}</span>
         </div>
-      <img src="img/plus.png" class="plus_basket">
+      <img src="img/plus.png" class="plus">
     </div>
     `;
 }
 
 
 //--------------------------------BASKET--------------------------------
-
-
-
-function addComment(index) {
-    let comment = getId(`textarea${index}`);
-    if (formIsValid(index)) {
-        posts[index]['comments'].push(comment.value);
-        comment.value = '';
-        renderComments(index);
-    } else {
-        openDialog();
-    }
-}
-
-
 
 let basket = [];
 
@@ -134,26 +119,42 @@ function updateShoppingBasket() {
         for (let i = 0; i < basket.length; i++) {
             sum += basket[i]['counter'] * basket[i]['price'];
             document.getElementById("basket-dishes").innerHTML += `
-            <div>
-                <div>
-                    <span>${basket[i]['counter']} mal</span>  
-                    <span>${basket[i]['name']}</span> 
+            <div class="basket_dish">
+                <div class="basket_value_name">
+                    <div>${basket[i]['counter']}</div>  
+                    <div>${basket[i]['name']}</div> 
                 </div>
-                <div>
+                <div class="basket_dishes_price">
                     <span>${basket[i]['price']}€</span> 
                 </div>
             </div>  
-            <div class="plus_minus_buttons">
-                <br><button onclick="removeFromBasket(${i});">test</button>
-            </div> 
-                
-           
+            <div class="basket_plus_minus_buttons">
+                    <a href="#" onclick="removeFromBasket(${i});">
+                        <img src="img/minus.png" class="plus_basket">
+                    </a>
+                    <a href="#" onclick="removeFromBasket(${i});">
+                        <img src="img/plus.png" class="plus_basket">
+                    </a>
+            </div>
             `;
         }
         let finalSum = sum + 1;
         sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
         finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
-        document.getElementById("basket-prices").innerHTML = ` Sum ${sum} € <br> Final sum ${finalSum} €`;
+        document.getElementById("basket-prices").innerHTML = ` 
+        <div class="space_between">
+            <div>Zwischensumme</div>
+            <div>${sum} €</div>
+        </div>
+        <div class="space_between">
+            <div>Lieferkosten</div>
+            <div>1€</div>
+        </div>
+        <div class="space_between">
+            <div>Gesamt</div>
+            <div>${finalSum} €</div>
+        </div>
+            `;
     }
 }
 

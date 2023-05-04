@@ -1,7 +1,7 @@
 ::-webkit-scrollbar {
     width: 10px;
 }
- 
+
 ::-webkit-scrollbar-track {
     background-color: #ebebeb;
     -webkit-border-radius: 10px;
@@ -11,7 +11,7 @@
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: #6d6d6d; 
+    background: #6d6d6d;
 }
 
 html {
@@ -38,7 +38,7 @@ a {
     border-color: rgba(0, 0, 0, 0.062);
 }
 
-.header-content{
+.header-content {
     display: flex;
     justify-content: space-between;
     height: 40px;
@@ -63,14 +63,14 @@ a {
 
 .flag {
     height: 40px;
-    width: 80px;    
+    width: 80px;
 }
 
 /* Links Menu rechts Warenkorb */
 .content {
     display: flex;
     justify-content: space-between;
-    background-color: #fcfcfc; 
+    background-color: #fcfcfc;
 }
 
 #main {
@@ -78,7 +78,7 @@ a {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #fcfcfc;  
+    background-color: #fcfcfc;
 }
 
 .stack {
@@ -124,7 +124,7 @@ a {
     border-radius: 10px;
 }
 
-.info-bg{
+.info-bg {
     display: flex;
     justify-content: center;
     background-color: white;
@@ -190,7 +190,7 @@ a {
     color: #017A39;
 }
 
-.align-center{
+.align-center {
     display: flex;
     align-items: center;
 }
@@ -200,7 +200,7 @@ a {
 }
 
 .headline-left {
-    width: 700px;    
+    width: 700px;
 }
 
 .card {
@@ -212,7 +212,7 @@ a {
     border-radius: 8px;
     margin: 8px;
     padding: 16px;
-    gap: 8px;
+
 }
 
 .card:hover {
@@ -221,17 +221,19 @@ a {
 }
 
 
-.plus_basket{
+.plus {
     height: 32px;
     width: 32px;
+    border-radius: 8px;
+    background-color: antiquewhite;
     margin-top: 18.720px;
 }
 
 .basket-container {
-    
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 32px;
+    margin: 16px;
     width: 420px;
     border-left-style: 1px solid;
     border-color: rgba(0, 0, 0, 0.062);
@@ -242,14 +244,44 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center; 
+    text-align: center;
+    margin-top: 32px;
+}
+
+
+.basket_value_name {
+    display: flex;
+    gap: 16px;
+}
+
+.basket_dish {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.basket_plus_minus_buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 32px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+   
+}
+
+.basket_plus_minus_buttons img {
+    height: 24px;
+    width: 24px;
+    border-radius: 8px;
+    background-color: antiquewhite;
+    
 }
 
 .basket-container h2 {
-   margin: 20px;
+    margin: 20px;
 }
 
-.text_align_center{
+.text_align_center {
     text-align: center;
 }
 
@@ -267,4 +299,9 @@ a {
 
 .d-none {
     display: none;
+}
+
+.space_between {
+    display: flex;
+    justify-content: space-between;
 }
