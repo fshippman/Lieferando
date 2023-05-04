@@ -57,12 +57,14 @@ function createShowHTML(i) {
     const price = food['price'];
 
     return /*html*/`
-    <div class="card">
-        <h3>${name}</h3>
-        <div>${food['description']}</div>
-        <div>${food['choice']}</div>
-        <span>${price}</span>
-       <button onclick="addToBasekt('${name}', ${price});">test</button>
+    <div class="card" onclick="addToBasekt('${name}', ${price});">
+        <div class = "card_content">
+            <h3>${name}</h3>
+            <div>${food['description']}</div>
+            <div>${food['choice']}</div>
+            <span>${price}</span>
+        </div>
+      <img src="img/plus.png" class="plus_basket">
     </div>
     `;
 }
@@ -116,6 +118,10 @@ function removeFromBasket(i) {
 }
 
 
+
+
+
+
 function updateShoppingBasket() {
 
     document.getElementById("basket-dishes").innerHTML = '';
@@ -127,7 +133,22 @@ function updateShoppingBasket() {
         let sum = 0;
         for (let i = 0; i < basket.length; i++) {
             sum += basket[i]['counter'] * basket[i]['price'];
-            document.getElementById("basket-dishes").innerHTML += `${basket[i]['counter']} mal ${basket[i]['name']} ${basket[i]['price']} €<br><button onclick="removeFromBasket(${i});">test</button>`;
+            document.getElementById("basket-dishes").innerHTML += `
+            <div>
+                <div>
+                    <span>${basket[i]['counter']} mal</span>  
+                    <span>${basket[i]['name']}</span> 
+                </div>
+                <div>
+                    <span>${basket[i]['price']}€</span> 
+                </div>
+            </div>  
+            <div class="plus_minus_buttons">
+                <br><button onclick="removeFromBasket(${i});">test</button>
+            </div> 
+                
+           
+            `;
         }
         let finalSum = sum + 1;
         sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
@@ -138,9 +159,9 @@ function updateShoppingBasket() {
 
 
 function showEmptyBasket() {
-    document.getElementById("basket").classList.remove('d-none');
+    document.getElementById("default_basket").classList.remove('d-none');
 }
 
 function hideEmptyBasket() {
-    document.getElementById("basket").classList.add('d-none');
+    document.getElementById("default_basket").classList.add('d-none');
 }

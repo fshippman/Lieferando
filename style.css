@@ -205,7 +205,7 @@ a {
 
 .card {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     width: 700px;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -221,12 +221,16 @@ a {
 }
 
 
+.plus_basket{
+    height: 32px;
+    width: 32px;
+    margin-top: 18.720px;
+}
 
 .basket-container {
+    
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
     gap: 48px;
     width: 420px;
     border-left-style: 1px solid;
@@ -234,8 +238,19 @@ a {
     background-color: white;
 }
 
+.empty_basket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+}
+
 .basket-container h2 {
    margin: 20px;
+}
+
+.text_align_center{
+    text-align: center;
 }
 
 #empty-basket-container {
