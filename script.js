@@ -16,31 +16,37 @@ let foods = [{
     'name': 'Pizza Margherita',
     'description': 'mit Käse, Tomatensauce und Schokolade',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
-    'price': '7.99',
+    'price': '6.80',
 },
 {
-    'name': 'Pizza balbla',
-    'description': 'mit Käse und Tomatensauce',
+    'name': 'Pizza Salami',
+    'description': 'mit Salami',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
-    'price': '7.99',
+    'price': '8.00',
 },
 {
-    'name': 'Pizza Margherita',
-    'description': 'mit Käse und Tomatensauce',
+    'name': 'Pizza Prosciutto',
+    'description': 'mit Schinken',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
-    'price': '7.99',
+    'price': '8.50',
 },
 {
-    'name': 'Pizza Margherita',
-    'description': 'mit Käse und Tomatensauce',
+    'name': 'Pizza Funghi',
+    'description': 'mit frischen Champignons',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
-    'price': '7.99',
+    'price': '8.50',
 },
 {
-    'name': 'Pizza Margherita',
-    'description': 'mit Käse und Tomatensauce',
+    'name': 'Spinaci',
+    'description': 'mit Spinat und Knoblauch',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
-    'price': '7.99',
+    'price': '8.50',
+},
+{
+    'name': 'Diabolo',
+    'description': 'mit Salami und Peperoni',
+    'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
+    'price': '8.80',
 }];
 
 function show() {
@@ -103,7 +109,10 @@ function removeFromBasket(i) {
 }
 
 
-
+function increaseValue(i) {
+    basket[i]['counter']++
+    updateShoppingBasket();
+}
 
 
 
@@ -116,7 +125,9 @@ function updateShoppingBasket() {
     } else {
         hideEmptyBasket();
         let sum = 0;
+        
         for (let i = 0; i < basket.length; i++) {
+            basket[i]['price'] =  parseFloat(basket[i]['price']).toFixed(2);
             sum += basket[i]['counter'] * basket[i]['price'];
             document.getElementById("basket-dishes").innerHTML += `
             <div class="basket_dish">
@@ -125,14 +136,14 @@ function updateShoppingBasket() {
                     <div>${basket[i]['name']}</div> 
                 </div>
                 <div class="basket_dishes_price">
-                    <span>${basket[i]['price']}€</span> 
+                    <span>${basket[i]['price']} €</span> 
                 </div>
             </div>  
             <div class="basket_plus_minus_buttons">
                     <a href="#" onclick="removeFromBasket(${i});">
                         <img src="img/minus.png" class="plus_basket">
                     </a>
-                    <a href="#" onclick="removeFromBasket(${i});">
+                    <a href="#" onclick="increaseValue(${i});">
                         <img src="img/plus.png" class="plus_basket">
                     </a>
             </div>

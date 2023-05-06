@@ -71,6 +71,7 @@ a {
     display: flex;
     justify-content: space-between;
     background-color: #fcfcfc;
+    height: 100%;
 }
 
 #main {
@@ -232,8 +233,12 @@ a {
 .basket-container {
     display: flex;
     flex-direction: column;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
     gap: 32px;
-    margin: 16px;
+    padding: 16px;
     width: 420px;
     border-left-style: 1px solid;
     border-color: rgba(0, 0, 0, 0.062);
@@ -304,4 +309,8 @@ a {
 .space_between {
     display: flex;
     justify-content: space-between;
+}
+
+.footer {
+    height: 100px;
 }
