@@ -140,10 +140,10 @@ function updateShoppingBasket() {
                 </div>
             </div>  
             <div class="basket_plus_minus_buttons">
-                    <a href="#" onclick="removeFromBasket(${i});">
+                    <a href="##" onclick="removeFromBasket(${i});">
                         <img src="img/minus.png" class="plus_basket">
                     </a>
-                    <a href="#" onclick="increaseValue(${i});">
+                    <a href="##" onclick="increaseValue(${i});">
                         <img src="img/plus.png" class="plus_basket">
                     </a>
             </div>
