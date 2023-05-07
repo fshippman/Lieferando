@@ -12,7 +12,6 @@ async function includeHTML() {
     }
 }
 
-
 let foods = [{
     'name': 'Pizza Margherita',
     'description': 'mit Käse, Tomatensauce und Schokolade',
@@ -50,7 +49,6 @@ let foods = [{
     'price': '8.80',
 }];
 
-
 function show() {
     document.getElementById('main').innerHTML += '';
     for (let i = 0; i < foods.length; i++) {
@@ -59,21 +57,21 @@ function show() {
     }
 }
 
-
 function createShowHTML(i) {
     const food = foods[i];
     const name = food['name'];
     const price = food['price'];
+
     return /*html*/`
-        <div class="card" onclick="addToBasekt('${name}', ${price});">
-            <div class = "card_content">
-                <h3>${name}</h3>
-                <div>${food['description']}</div>
-                <div>${food['choice']}</div>
-                <span>${price}</span>
-            </div>
-            <img src="img/plus.png" class="plus">
+    <div class="card" onclick="addToBasekt('${name}', ${price});">
+        <div class = "card_content">
+            <h3>${name}</h3>
+            <div>${food['description']}</div>
+            <div>${food['choice']}</div>
+            <span>${price}</span>
         </div>
+      <img src="img/plus.png" class="plus">
+    </div>
     `;
 }
 
@@ -81,7 +79,6 @@ function createShowHTML(i) {
 //--------------------------------BASKET--------------------------------
 
 let basket = [];
-
 
 function addToBasekt(name, price) {
     let index = basket.findIndex(pizza => {
@@ -96,11 +93,13 @@ function addToBasekt(name, price) {
     } else {
         basket[index]['counter']++;
     }
+
     updateShoppingBasket();
 }
 
 
 function removeFromBasket(i) {
+
     if (basket[i]['counter'] > 1) {
         basket[i]['counter']--;
     } else {
@@ -116,7 +115,9 @@ function increaseValue(i) {
 }
 
 
+
 function updateShoppingBasket() {
+
     document.getElementById("basket-dishes").innerHTML = '';
     if (basket.length < 1) {
         document.getElementById("basket-prices").innerHTML = '';
@@ -124,27 +125,28 @@ function updateShoppingBasket() {
     } else {
         hideEmptyBasket();
         let sum = 0;
+        
         for (let i = 0; i < basket.length; i++) {
-            basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
+            basket[i]['price'] =  parseFloat(basket[i]['price']).toFixed(2);
             sum += basket[i]['counter'] * basket[i]['price'];
             document.getElementById("basket-dishes").innerHTML += `
-                <div class="basket_dish">
-                    <div class="basket_value_name">
-                        <div>${basket[i]['counter']}</div>  
-                        <div>${basket[i]['name']}</div> 
-                    </div>
-                    <div class="basket_dishes_price">
-                        <span>${basket[i]['price']} €</span> 
-                    </div>
-                </div>  
-                <div class="basket_plus_minus_buttons">
-                        <a href="##" onclick="removeFromBasket(${i});">
-                            <img src="img/minus.png" class="plus_basket">
-                        </a>
-                        <a href="##" onclick="increaseValue(${i});">
-                            <img src="img/plus.png" class="plus_basket">
-                        </a>
+            <div class="basket_dish">
+                <div class="basket_value_name">
+                    <div>${basket[i]['counter']}</div>  
+                    <div>${basket[i]['name']}</div> 
                 </div>
+                <div class="basket_dishes_price">
+                    <span>${basket[i]['price']} €</span> 
+                </div>
+            </div>  
+            <div class="basket_plus_minus_buttons">
+                    <a href="##" onclick="removeFromBasket(${i});">
+                        <img src="img/minus.png" class="plus_basket">
+                    </a>
+                    <a href="##" onclick="increaseValue(${i});">
+                        <img src="img/plus.png" class="plus_basket">
+                    </a>
+            </div>
             `;
         }
         let finalSum = sum + 1;
@@ -171,7 +173,6 @@ function updateShoppingBasket() {
 function showEmptyBasket() {
     document.getElementById("default_basket").classList.remove('d-none');
 }
-
 
 function hideEmptyBasket() {
     document.getElementById("default_basket").classList.add('d-none');
