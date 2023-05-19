@@ -12,6 +12,26 @@ async function includeHTML() {
     }
 }
 
+
+
+
+const mediaQuery = window.matchMedia('(max-width: 768px)')
+function handleTabletChange(e) {
+    // Check if the media query is true
+    if (e.matches) {
+      // Then log the following message to the console
+      console.log('Media Query Matched!')
+    }
+  }
+// Register event listener
+mediaQuery.addListener(handleTabletChange)
+
+// Initial check
+handleTabletChange(mediaQuery)
+
+
+
+
 let foods = [{
     'name': 'Pizza Margherita',
     'description': 'mit Käse, Tomatensauce und Schokolade',
@@ -177,3 +197,8 @@ function showEmptyBasket() {
 function hideEmptyBasket() {
     document.getElementById("default_basket").classList.add('d-none');
 }
+
+
+
+
+
