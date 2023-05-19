@@ -15,19 +15,6 @@ async function includeHTML() {
 
 
 
-const mediaQuery = window.matchMedia('(max-width: 768px)')
-function handleTabletChange(e) {
-    // Check if the media query is true
-    if (e.matches) {
-      // Then log the following message to the console
-      console.log('Media Query Matched!')
-    }
-  }
-// Register event listener
-mediaQuery.addListener(handleTabletChange)
-
-// Initial check
-handleTabletChange(mediaQuery)
 
 
 
@@ -70,10 +57,10 @@ let foods = [{
 }];
 
 function show() {
-    document.getElementById('main').innerHTML += '';
+    document.getElementById('left').innerHTML += '';
     for (let i = 0; i < foods.length; i++) {
         const food = foods[i];
-        document.getElementById('main').innerHTML += createShowHTML(i);
+        document.getElementById('left').innerHTML += createShowHTML(i);
     }
 }
 
@@ -201,4 +188,22 @@ function hideEmptyBasket() {
 
 
 
+const mediaQuery = window.matchMedia('(max-width: 768px)')
+function handleTabletChange(e) {
+    // Check if the media query is true
+    if (e.matches) {
+      // Then log the following message to the console
+      console.log('Media Query Matched!')
+    }
+  }
+// Register event listener
+mediaQuery.addListener(handleTabletChange)
 
+// Initial check
+handleTabletChange(mediaQuery)
+
+
+
+/* function removeRight {
+
+} */
