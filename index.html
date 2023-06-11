@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,21 +18,23 @@
     <div w3-include-html="templates/header.html"></div>
 
     <div class="content">
-        
+
 
         <div id="left">
             <div class="stack">
                 <div class="pizza-picture">
-                    <img src="img/pizza.jpg" alt="">  
+                    <img src="img/pizza.jpg" alt="">
                 </div>
             </div>
             <div class="info-bg">
                 <div class="info">
-                    <div class="headline"><h1>Pizzeria 123</h1></div>
+                    <div class="headline">
+                        <h1>Pizzeria 123</h1>
+                    </div>
                     <div class="rating-container">
                         <div class="pizza-logo">
                             <img src="img/pizza-logo.jpg" alt="">
-                        </div>   
+                        </div>
                         <div class="ratings">
                             <div class="stars">
                                 <img src="img/star.png" alt="">
@@ -39,9 +42,9 @@
                                 <img src="img/star.png" alt="">
                                 <img src="img/star.png" alt="">
                                 <img src="img/halfstar.png" alt="">
-                            </div> 
+                            </div>
                             <div class="rating-count"><a href="#">1.5k Bewertungen</a></div>
-                        </div>                   
+                        </div>
                     </div>
                     <div class="delivery-container">
                         <div class="align-center"><img src="img/time.png" alt="">20-45 min </div>•
@@ -49,32 +52,49 @@
                         <div class="align-center"><img src="img/bag.png" alt="">Min. 10,00 € </div>
                     </div>
                     <div class="description">
-                      Beste Pizzen der Lieferbande, schneller geliefert, als die Polizei erlaubt.
+                        Beste Pizzen der Lieferbande, schneller geliefert, als die Polizei erlaubt.
                     </div>
                 </div>
             </div>
-            <div class="headline-left"><h2>Pizza</h2></div>
-        </div>
-       
-        
-        <div class="right">
-                <span class="text_align_center">
-                    <h2>Warenkorb</h2>
-                </span>
-                <div id="default_basket" class="empty_basket">
-                    <img src="img/bag.png" alt="">
-                    <h2>Fülle deinen Warenkorb</h2>
-                    Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
+            <div class="headline-left">
+                <h2>Pizza</h2>
+            </div>
+
+
+            <div class="responsive_basket_section"><!-- Warenkorb Responsive Container only d-none dran-->
+                <div class="padding_bottom">
+                    <button><!-- Button -->
+                        <div><!-- Butteninhalt-Div -->
+                            <div><!-- Container fuer Bild und Text -->
+                                <img src="img/bag-responsive.png" alt="">
+                            </div>
+                        </div> 
+                    </button> 
                 </div>
-                <div id="basket-dishes"></div>
-                <div id="basket-prices"></div>
-        </div>   
+                    
+            </div>
+
+        </div>
+
+
+        <div class="right">
+            <span class="text_align_center">
+                <h2>Warenkorb</h2>
+            </span>
+            <div id="default_basket" class="empty_basket">
+                <img src="img/bag.png" alt="">
+                <h2>Fülle deinen Warenkorb</h2>
+                Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
+            </div>
+            <div id="basket-dishes"></div>
+            <div id="basket-prices"></div>
+        </div>
     </div>
 
-    <div w3-include-html="templates/footer.html"></div>     
-    
+   
+    <div w3-include-html="templates/footer.html"></div>
+
 
 </body>
+
 </html>
-
-

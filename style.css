@@ -271,7 +271,7 @@ a {
     gap: 32px;
     margin-top: 8px;
     margin-bottom: 16px;
-   
+
 }
 
 .basket_plus_minus_buttons img {
@@ -279,7 +279,7 @@ a {
     width: 24px;
     border-radius: 8px;
     background-color: antiquewhite;
-    
+
 }
 
 .right h2 {
@@ -313,4 +313,40 @@ a {
 
 .footer {
     height: 100px;
+}
+
+.responsive_basket_section {
+    bottom: 0;
+    left: 0;
+    padding: 8px;
+    position: fixed;
+    z-index: 5;
+    width: 768px;
+    background-color: white;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.062);
+}
+
+button {
+    width: 100%;
+    border-radius: 8px;
+    border-color: #f36805;
+    background-color: #f36805;
+    border-style: solid;
+    
+}
+
+.padding_bottom {
+    padding-bottom: 24px;
+}
+
+.responsive_basket_fullwindow {
+    height: 100%;
+    width: 100%;
+    z-index: 4006;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
 }
