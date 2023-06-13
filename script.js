@@ -192,16 +192,20 @@ const mediaQuery = window.matchMedia('(max-width: 768px)')
 function handleTabletChange(e) {
     // Check if the media query is true
     if (e.matches) {
-      // Then log the following message to the console
-      console.log('Media Query Matched!')
+        // Then log the following message to the console
+        document.getElementById("right_side").classList.add('d-none');
+    } if(basket.length > 0) {
+        console.log('here i am!')
+        document.getElementById("responsive_basket_section").classList.remove('d-none')
+        }
     }
-  }
+
+
 // Register event listener
 mediaQuery.addListener(handleTabletChange)
 
 // Initial check
 handleTabletChange(mediaQuery)
-
 
 
 /* function removeRight {
