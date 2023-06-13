@@ -102,6 +102,8 @@ function addToBasekt(name, price) {
     }
 
     updateShoppingBasket();
+    createResponsiveBasketSection()
+
 }
 
 
@@ -196,6 +198,7 @@ function handleTabletChange(e) {
         document.getElementById("right_side").classList.add('d-none');
     } if(basket.length > 0) {
         console.log('here i am!')
+        createResponsiveBasketSection();
         document.getElementById("responsive_basket_section").classList.remove('d-none')
         }
     }
@@ -208,6 +211,27 @@ mediaQuery.addListener(handleTabletChange)
 handleTabletChange(mediaQuery)
 
 
-/* function removeRight {
+function createResponsiveBasketSection() {
+        let sum = 0;
+        
+        for (let i = 0; i < basket.length; i++) {
+            basket[i]['price'] =  parseFloat(basket[i]['price']).toFixed(2);
+            sum += basket[i]['counter'] * basket[i]['price'];
+        }
+        let finalSum = sum + 1;
+        sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
+        finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
+        document.getElementById("responsive_basket_section").innerHTML = ` 
+        <div class="padding_bottom">
+                    <button><!-- Button -->
+                        <div><!-- Butteninhalt-Div -->
+                            <div><!-- Container fuer Bild und Text -->
+                                <img src="img/bag-responsive.png" alt="">
+                                <div>${finalSum} €</div>
+                            </div>
+                        </div> 
+                    </button> 
+                </div>
+            `;
+    }
 
-} */
