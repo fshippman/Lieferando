@@ -67,7 +67,7 @@ a {
 }
 
 /* Links Menu rechts Warenkorb */
-.content {
+#content {
     display: flex;
     justify-content: space-between;
     background-color: #fcfcfc;
@@ -333,14 +333,14 @@ button {
     border-color: #f36805;
     background-color: #f36805;
     border-style: solid;
-    
+
 }
 
 .padding_bottom {
     padding-bottom: 24px;
 }
 
-.responsive_basket_fullwindow {
+.basket_fullscreen {
     height: 100%;
     width: 100%;
     z-index: 4006;

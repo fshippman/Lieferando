@@ -14,11 +14,6 @@ async function includeHTML() {
 
 
 
-
-
-
-
-
 let foods = [{
     'name': 'Pizza Margherita',
     'description': 'mit Käse, Tomatensauce und Schokolade',
@@ -55,6 +50,8 @@ let foods = [{
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '8.80',
 }];
+
+
 
 function show() {
     document.getElementById('left').innerHTML += '';
@@ -134,9 +131,9 @@ function updateShoppingBasket() {
     } else {
         hideEmptyBasket();
         let sum = 0;
-        
+
         for (let i = 0; i < basket.length; i++) {
-            basket[i]['price'] =  parseFloat(basket[i]['price']).toFixed(2);
+            basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
             sum += basket[i]['counter'] * basket[i]['price'];
             document.getElementById("basket-dishes").innerHTML += `
             <div class="basket_dish">
@@ -196,12 +193,12 @@ function handleTabletChange(e) {
     if (e.matches) {
         // Then log the following message to the console
         document.getElementById("right_side").classList.add('d-none');
-    } if(basket.length > 0) {
+    } if (basket.length > 0) {
         console.log('here i am!')
         createResponsiveBasketSection();
         document.getElementById("responsive_basket_section").classList.remove('d-none')
-        }
     }
+}
 
 
 // Register event listener
@@ -212,18 +209,18 @@ handleTabletChange(mediaQuery)
 
 
 function createResponsiveBasketSection() {
-        let sum = 0;
-        
-        for (let i = 0; i < basket.length; i++) {
-            basket[i]['price'] =  parseFloat(basket[i]['price']).toFixed(2);
-            sum += basket[i]['counter'] * basket[i]['price'];
-        }
-        let finalSum = sum + 1;
-        sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
-        finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
-        document.getElementById("responsive_basket_section").innerHTML = ` 
+    let sum = 0;
+
+    for (let i = 0; i < basket.length; i++) {
+        basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
+        sum += basket[i]['counter'] * basket[i]['price'];
+    }
+    let finalSum = sum + 1;
+    sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
+    finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
+    document.getElementById("responsive_basket_section").innerHTML = ` 
         <div class="padding_bottom">
-                    <button><!-- Button -->
+                    <button onclick="openBasketFullscreen()"><!-- Button -->
                         <div><!-- Butteninhalt-Div -->
                             <div><!-- Container fuer Bild und Text -->
                                 <img src="img/bag-responsive.png" alt="">
@@ -233,5 +230,53 @@ function createResponsiveBasketSection() {
                     </button> 
                 </div>
             `;
+}
+
+function openBasketFullscreen() {
+    document.getElementById("content").innerHTML = '';
+   
+        let sum = 0;
+
+        for (let i = 0; i < basket.length; i++) {
+            basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
+            sum += basket[i]['counter'] * basket[i]['price'];
+            document.getElementById("basket-dishes").innerHTML += `
+            <div class="basket_dish">
+                <div class="basket_value_name">
+                    <div>${basket[i]['counter']}</div>  
+                    <div>${basket[i]['name']}</div> 
+                </div>
+                <div class="basket_dishes_price">
+                    <span>${basket[i]['price']} €</span> 
+                </div>
+            </div>  
+            <div class="basket_plus_minus_buttons">
+                    <a href="##" onclick="removeFromBasket(${i});">
+                        <img src="img/minus.png" class="plus_basket">
+                    </a>
+                    <a href="##" onclick="increaseValue(${i});">
+                        <img src="img/plus.png" class="plus_basket">
+                    </a>
+            </div>
+            `;
+        }
+        let finalSum = sum + 1;
+        sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
+        finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
+        document.getElementById("basket-prices").innerHTML = ` 
+        <div class="space_between">
+            <div>Zwischensumme</div>
+            <div>${sum} €</div>
+        </div>
+        <div class="space_between">
+            <div>Lieferkosten</div>
+            <div>1€</div>
+        </div>
+        <div class="space_between">
+            <div>Gesamt</div>
+            <div>${finalSum} €</div>
+        </div>
+            `;
     }
+
 
