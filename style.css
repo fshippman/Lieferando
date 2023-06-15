@@ -230,7 +230,7 @@ a {
     margin-top: 18.720px;
 }
 
-#right {
+#right_side {
     display: flex;
     flex-direction: column;
     position: -webkit-sticky;
@@ -282,7 +282,7 @@ a {
 
 }
 
-.right h2 {
+.right_side h2 {
     margin: 20px;
 }
 
@@ -325,6 +325,7 @@ a {
     background-color: white;
     border: 1px solid;
     border-color: rgba(0, 0, 0, 0.062);
+    display: none;
 }
 
 button {
@@ -333,7 +334,10 @@ button {
     border-color: #f36805;
     background-color: #f36805;
     border-style: solid;
+}
 
+button :hover {
+    cursor: pointer;
 }
 
 .padding_bottom {
@@ -350,3 +354,43 @@ button {
     bottom: 0;
     position: fixed;
 }
+
+
+.button_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    margin: 8px;
+    gap: 8px;
+}
+
+.button_content svg path{
+    fill: currentColor;
+  }
+
+@media(max-width: 768px) {
+    #right_side {
+        display: none;
+    }
+
+    #responsive_basket_section {
+        bottom: 0;
+        left: 0;
+        padding: 8px;
+        position: fixed;
+        z-index: 5;
+        width: 768px;
+        background-color: white;
+        border: 1px solid;
+        border-color: rgba(0, 0, 0, 0.062);
+        display: block;
+    }
+}
+
+@media(max-width: 610px) {}
+
+@media(max-width: 480px) {}
+
+@media(max-width: 280px) {}
