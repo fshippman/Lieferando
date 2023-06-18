@@ -71,6 +71,7 @@ a {
     display: flex;
     justify-content: space-between;
     background-color: #fcfcfc;
+    min-height: 100%;
     height: 100%;
 }
 
@@ -345,7 +346,22 @@ button :hover {
     padding-bottom: 24px;
 }
 
-.basket_fullscreen {
+#basket_fullscreen {
+    
+    height: 100vh;
+    width: 100%;
+    min-height: 100%;
+    z-index: 4006;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: inherit;
+    
+}
+
+.content_basket_fullscreen{
+    display: block;
     height: 100%;
     width: 100%;
     z-index: 4006;
@@ -355,7 +371,6 @@ button :hover {
     bottom: 0;
     position: fixed;
 }
-
 
 .button_content {
     display: flex;
@@ -370,6 +385,14 @@ button :hover {
 .button_content svg path {
     fill: currentColor;
 }
+
+.basket_close {
+display: flex;
+flex-direction: row-reverse;
+}
+
+
+
 
 @media(max-width: 1100px) {
     .card {

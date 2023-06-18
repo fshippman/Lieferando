@@ -13,7 +13,6 @@ async function includeHTML() {
 }
 
 
-
 let foods = [{
     'name': 'Pizza Margherita',
     'description': 'mit Käse, Tomatensauce und Schokolade',
@@ -52,7 +51,6 @@ let foods = [{
 }];
 
 
-
 function show() {
     document.getElementById('left').innerHTML += '';
     for (let i = 0; i < foods.length; i++) {
@@ -60,6 +58,7 @@ function show() {
         document.getElementById('left').innerHTML += createShowHTML(i);
     }
 }
+
 
 function createShowHTML(i) {
     const food = foods[i];
@@ -79,7 +78,6 @@ function createShowHTML(i) {
     `;
 }
 
-
 //--------------------------------BASKET--------------------------------
 
 let basket = [];
@@ -97,10 +95,8 @@ function addToBasekt(name, price) {
     } else {
         basket[index]['counter']++;
     }
-
     updateShoppingBasket();
     createResponsiveBasketSection()
-
 }
 
 
@@ -121,9 +117,7 @@ function increaseValue(i) {
 }
 
 
-
 function updateShoppingBasket() {
-
     document.getElementById("basket-dishes").innerHTML = '';
     if (basket.length < 1) {
         document.getElementById("basket-prices").innerHTML = '';
@@ -131,7 +125,6 @@ function updateShoppingBasket() {
     } else {
         hideEmptyBasket();
         let sum = 0;
-
         for (let i = 0; i < basket.length; i++) {
             basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
             sum += basket[i]['counter'] * basket[i]['price'];
@@ -185,29 +178,6 @@ function hideEmptyBasket() {
 }
 
 
-
-
-/* const mediaQuery = window.matchMedia('(max-width: 768px)')
-function handleTabletChange(e) {
-    // Check if the media query is true
-    if (e.matches) {
-        // Then log the following message to the console
-        document.getElementById("right_side").classList.add('d-none');
-    } if (basket.length > 0) {
-        console.log('here i am!')
-        createResponsiveBasketSection();
-        document.getElementById("responsive_basket_section").classList.remove('d-none')
-    }
-}
-
-
-// Register event listener
-mediaQuery.addListener(handleTabletChange)
-
-// Initial check
-handleTabletChange(mediaQuery) */
-
-
 function createResponsiveBasketSection() {
     let sum = 0;
 
@@ -232,14 +202,34 @@ function createResponsiveBasketSection() {
 }
 
 function openBasketFullscreen() {
-    document.getElementById("content").innerHTML = '';
    
-        let sum = 0;
+    document.getElementById("content").innerHTML = `
+    <div id="basket_fullscreen">
+    <div class="basket_close">
+    <a href="##" onclick="closeFullscreen()"><img src="img/close.png" alt=""></a>
+    
+    </div>
+   
 
-        for (let i = 0; i < basket.length; i++) {
-            basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
-            sum += basket[i]['counter'] * basket[i]['price'];
-            document.getElementById("basket-dishes").innerHTML += `
+    <span class="text_align_center">
+        <h2>Warenkorb</h2>
+    </span>
+    <div id="default_basket" class="empty_basket">
+        <img src="img/bag.png" alt="">
+        <h2>Fülle deinen Warenkorb</h2>
+        Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
+    </div>
+    <div id="basket-dishes"></div>
+    <div id="basket-prices"></div>
+</div>
+`;
+
+    hideEmptyBasket();
+    let sum = 0;
+    for (let i = 0; i < basket.length; i++) {
+        basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
+        sum += basket[i]['counter'] * basket[i]['price'];
+        document.getElementById("basket-dishes").innerHTML += `
             <div class="basket_dish">
                 <div class="basket_value_name">
                     <div>${basket[i]['counter']}</div>  
@@ -258,11 +248,11 @@ function openBasketFullscreen() {
                     </a>
             </div>
             `;
-        }
-        let finalSum = sum + 1;
-        sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
-        finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
-        document.getElementById("basket-prices").innerHTML = ` 
+    }
+    let finalSum = sum + 1;
+    sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
+    finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
+    document.getElementById("basket-prices").innerHTML = ` 
         <div class="space_between">
             <div>Zwischensumme</div>
             <div>${sum} €</div>
@@ -276,6 +266,10 @@ function openBasketFullscreen() {
             <div>${finalSum} €</div>
         </div>
             `;
-    }
+}
 
 
+
+function closeFullscreen(){
+    document.getElementById("basket_fullscreen").classList.add('d-none');
+}
