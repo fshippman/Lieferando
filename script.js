@@ -201,7 +201,18 @@ function createResponsiveBasketSection() {
             `;
 }
 
+
+
+
 function openBasketFullscreen() {
+    document.getElementById("dialog").classList.remove('d-none');
+}
+
+function closeFullscreen() {
+    document.getElementById("dialog").classList.add('d-none');
+}
+
+/* function openBasketFullscreen() {
    
     document.getElementById("content").innerHTML = `
     <div id="basket_fullscreen">
@@ -266,10 +277,10 @@ function openBasketFullscreen() {
             <div>${finalSum} €</div>
         </div>
             `;
-}
+} */
 
 
 
-function closeFullscreen(){
+/* function closeFullscreen(){
     document.getElementById("basket_fullscreen").classList.add('d-none');
-}
+} */
