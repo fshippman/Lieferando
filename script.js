@@ -206,6 +206,71 @@ function createResponsiveBasketSection() {
 
 function openBasketFullscreen() {
     document.getElementById("dialog").classList.remove('d-none');
+    /* hideEmptyBasket(); */
+    document.getElementById("dialog").innerHTML = `
+    <div id="basket_fullscreen" class="dialog">
+    <div class="basket_close">
+    <a href="##" onclick="closeFullscreen()"><img src="img/close.png" alt=""></a>
+    
+    </div>
+   
+    
+    <span class="text_align_center">
+        <h2>Warenkorb</h2>
+    </span>
+    <div id="default_basket" class="empty_basket">
+        <img src="img/bag.png" alt="">
+        <h2>Fülle deinen Warenkorb</h2>
+        Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
+    </div>
+    <div id="basket-dishes"></div>
+    <div id="basket-prices"></div>
+</div>
+`;
+
+hideEmptyBasket();
+    let sum = 0;
+    for (let i = 0; i < basket.length; i++) {
+        basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
+        sum += basket[i]['counter'] * basket[i]['price'];
+        document.getElementById("basket-dishes").innerHTML += `
+            <div class="basket_dish">
+                <div class="basket_value_name">
+                    <div>${basket[i]['counter']}</div>  
+                    <div>${basket[i]['name']}</div> 
+                </div>
+                <div class="basket_dishes_price">
+                    <span>${basket[i]['price']} €</span> 
+                </div>
+            </div>  
+            <div class="basket_plus_minus_buttons">
+                    <a href="##" onclick="removeFromBasket(${i});">
+                        <img src="img/minus.png" class="plus_basket">
+                    </a>
+                    <a href="##" onclick="increaseValue(${i});">
+                        <img src="img/plus.png" class="plus_basket">
+                    </a>
+            </div>
+            `;
+    }
+
+    let finalSum = sum + 1;
+    sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
+    finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
+    document.getElementById("basket-prices").innerHTML = ` 
+        <div class="space_between">
+            <div>Zwischensumme</div>
+            <div>${sum} €</div>
+        </div>
+        <div class="space_between">
+            <div>Lieferkosten</div>
+            <div>1€</div>
+        </div>
+        <div class="space_between">
+            <div>Gesamt</div>
+            <div>${finalSum} €</div>
+        </div>
+            `;
 }
 
 function closeFullscreen() {
