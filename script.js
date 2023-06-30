@@ -66,7 +66,7 @@ function createShowHTML(i) {
     const price = food['price'];
 
     return /*html*/`
-    <div class="card" onclick="addToBasekt('${name}', ${price});">
+    <div class="card" onclick="addToBasket('${name}', ${price});">
         <div class = "card-content">
             <h3>${name}</h3>
             <div>${food['description']}</div>
@@ -82,7 +82,7 @@ function createShowHTML(i) {
 
 let basket = [];
 
-function addToBasekt(name, price) {
+function addToBasket(name, price) {
     let index = basket.findIndex(pizza => {
         return pizza.name === name;
     })
@@ -117,10 +117,13 @@ function increaseValue(i) {
 }
 
 
-function updateShoppingBasket() {
-    document.getElementById("basket-dishes").innerHTML = '';
+updateShoppingBasket('basket-dishes', 'basket-prices');
+updateShoppingBasket('basket-dishes-mobile', 'basket-prices-mobile');
+
+function updateShoppingBasket(basketId, basketPricesId) {
+    document.getElementById(basketId).innerHTML = '';
     if (basket.length < 1) {
-        document.getElementById("basket-prices").innerHTML = '';
+        document.getElementById(basketPricesId).innerHTML = '';
         showEmptyBasket();
     } else {
         hideEmptyBasket();
@@ -128,44 +131,52 @@ function updateShoppingBasket() {
         for (let i = 0; i < basket.length; i++) {
             basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
             sum += basket[i]['counter'] * basket[i]['price'];
-            document.getElementById("basket-dishes").innerHTML += `
-            <div class="basket-dish">
-                <div class="basket-value-name">
-                    <div>${basket[i]['counter']}</div>  
-                    <div>${basket[i]['name']}</div> 
-                </div>
-                <div class="basket-dishes-price">
-                    <span>${basket[i]['price']} €</span> 
-                </div>
-            </div>  
-            <div class="basket-plus-minus-buttons">
-                    <a href="##" onclick="removeFromBasket(${i});">
-                        <img src="img/minus.png" class="plus-basket">
-                    </a>
-                    <a href="##" onclick="increaseValue(${i});">
-                        <img src="img/plus.png" class="plus-basket">
-                    </a>
-            </div>
-            `;
+            document.getElementById("basket-dishes-mobile").innerHTML += createBasketHTML(basket, i)
         }
         let finalSum = sum + 1;
         sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
         finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
-        document.getElementById("basket-prices").innerHTML = ` 
-        <div class="space-between">
-            <div>Zwischensumme</div>
-            <div>${sum} €</div>
-        </div>
-        <div class="space-between">
-            <div>Lieferkosten</div>
-            <div>1€</div>
-        </div>
-        <div class="space-between">
-            <div>Gesamt</div>
-            <div>${finalSum} €</div>
-        </div>
-            `;
+        document.getElementById(basketId).innerHTML = generateCostOverviewHTML(sum, finalSum);
     }
+}
+
+function createBasketHTML(basket, i) {
+    return `
+    <div class="basket-dish">
+        <div class="basket-value-name">
+            <div>${basket[i]['counter']}</div>  
+            <div>${basket[i]['name']}</div> 
+        </div>
+        <div class="basket-dishes-price">
+            <span>${basket[i]['price']} €</span> 
+        </div>
+    </div>  
+    <div class="basket-plus-minus-buttons">
+            <a href="##" onclick="removeFromBasket(${i});">
+                <img src="img/minus.png" class="plus-basket">
+            </a>
+            <a href="##" onclick="increaseValue(${i});">
+                <img src="img/plus.png" class="plus-basket">
+            </a>
+    </div>
+    `;
+}
+
+function generateCostOverviewHTML(sum, finalSum){
+    return ` 
+    <div class="space-between">
+        <div>Zwischensumme</div>
+        <div>${sum} €</div>
+    </div>
+    <div class="space-between">
+        <div>Lieferkosten</div>
+        <div>1€</div>
+    </div>
+    <div class="space-between">
+        <div>Gesamt</div>
+        <div>${finalSum} €</div>
+    </div>
+        `;
 }
 
 
@@ -275,75 +286,3 @@ function closeFullscreen() {
     document.getElementById("dialog").classList.add('d-none');
 }
 
-/* function openBasketFullscreen() {
-   
-    document.getElementById("content").innerHTML = `
-    <div id="basket-fullscreen">
-    <div class="basket-close">
-    <a href="##" onclick="closeFullscreen()"><img src="img/close.png" alt=""></a>
-    
-    </div>
-   
-
-    <span class="text-align-center">
-        <h2>Warenkorb</h2>
-    </span>
-    <div id="default-basket" class="empty-basket">
-        <img src="img/bag.png" alt="">
-        <h2>Fülle deinen Warenkorb</h2>
-        Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
-    </div>
-    <div id="basket-dishes"></div>
-    <div id="basket-prices"></div>
-</div>
-`;
-
-    hideEmptyBasket();
-    let sum = 0;
-    for (let i = 0; i < basket.length; i++) {
-        basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
-        sum += basket[i]['counter'] * basket[i]['price'];
-        document.getElementById("basket-dishes").innerHTML += `
-            <div class="basket-dish">
-                <div class="basket-value-name">
-                    <div>${basket[i]['counter']}</div>  
-                    <div>${basket[i]['name']}</div> 
-                </div>
-                <div class="basket-dishes-price">
-                    <span>${basket[i]['price']} €</span> 
-                </div>
-            </div>  
-            <div class="basket-plus-minus-buttons">
-                    <a href="##" onclick="removeFromBasket(${i});">
-                        <img src="img/minus.png" class="plus-basket">
-                    </a>
-                    <a href="##" onclick="increaseValue(${i});">
-                        <img src="img/plus.png" class="plus-basket">
-                    </a>
-            </div>
-            `;
-    }
-    let finalSum = sum + 1;
-    sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
-    finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
-    document.getElementById("basket-prices").innerHTML = ` 
-        <div class="space-between">
-            <div>Zwischensumme</div>
-            <div>${sum} €</div>
-        </div>
-        <div class="space-between">
-            <div>Lieferkosten</div>
-            <div>1€</div>
-        </div>
-        <div class="space-between">
-            <div>Gesamt</div>
-            <div>${finalSum} €</div>
-        </div>
-            `;
-} */
-
-
-
-/* function closeFullscreen(){
-    document.getElementById("basket-fullscreen").classList.add('d-none');
-} */
