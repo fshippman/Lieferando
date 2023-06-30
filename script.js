@@ -67,7 +67,7 @@ function createShowHTML(i) {
 
     return /*html*/`
     <div class="card" onclick="addToBasekt('${name}', ${price});">
-        <div class = "card_content">
+        <div class = "card-content">
             <h3>${name}</h3>
             <div>${food['description']}</div>
             <div>${food['choice']}</div>
@@ -129,21 +129,21 @@ function updateShoppingBasket() {
             basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
             sum += basket[i]['counter'] * basket[i]['price'];
             document.getElementById("basket-dishes").innerHTML += `
-            <div class="basket_dish">
-                <div class="basket_value_name">
+            <div class="basket-dish">
+                <div class="basket-value-name">
                     <div>${basket[i]['counter']}</div>  
                     <div>${basket[i]['name']}</div> 
                 </div>
-                <div class="basket_dishes_price">
+                <div class="basket-dishes-price">
                     <span>${basket[i]['price']} €</span> 
                 </div>
             </div>  
-            <div class="basket_plus_minus_buttons">
+            <div class="basket-plus-minus-buttons">
                     <a href="##" onclick="removeFromBasket(${i});">
-                        <img src="img/minus.png" class="plus_basket">
+                        <img src="img/minus.png" class="plus-basket">
                     </a>
                     <a href="##" onclick="increaseValue(${i});">
-                        <img src="img/plus.png" class="plus_basket">
+                        <img src="img/plus.png" class="plus-basket">
                     </a>
             </div>
             `;
@@ -152,15 +152,15 @@ function updateShoppingBasket() {
         sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
         finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
         document.getElementById("basket-prices").innerHTML = ` 
-        <div class="space_between">
+        <div class="space-between">
             <div>Zwischensumme</div>
             <div>${sum} €</div>
         </div>
-        <div class="space_between">
+        <div class="space-between">
             <div>Lieferkosten</div>
             <div>1€</div>
         </div>
-        <div class="space_between">
+        <div class="space-between">
             <div>Gesamt</div>
             <div>${finalSum} €</div>
         </div>
@@ -170,11 +170,11 @@ function updateShoppingBasket() {
 
 
 function showEmptyBasket() {
-    document.getElementById("default_basket").classList.remove('d-none');
+    document.getElementById("default-basket").classList.remove('d-none');
 }
 
 function hideEmptyBasket() {
-    document.getElementById("default_basket").classList.add('d-none');
+    document.getElementById("default-basket").classList.add('d-none');
 }
 
 
@@ -188,10 +188,10 @@ function createResponsiveBasketSection() {
     let finalSum = sum + 1;
     sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
     finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
-    document.getElementById("responsive_basket_section").innerHTML = ` 
+    document.getElementById("responsive-basket-section").innerHTML = ` 
         
                     <button onclick="openBasketFullscreen()"><!-- Button -->
-                            <div class="button_content"><!-- Container fuer Bild und Text -->
+                            <div class="button-content"><!-- Container fuer Bild und Text -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="white"><path d="M4.559 7l4.701-4.702c.198-.198.459-.298.72-.298.613 0 1.02.505 1.02 1.029 0 .25-.092.504-.299.711l-3.26 3.26h-2.882zm12 0h2.883l-4.702-4.702c-.198-.198-.459-.298-.72-.298-.613 0-1.02.505-1.02 1.029 0 .25.092.504.299.711l3.26 3.26zm3.703 4l-.016.041-3.598 8.959h-9.296l-3.597-8.961-.016-.039h16.523zm3.738-2h-24v2h.643c.535 0 1.021.304 1.256.784l4.101 10.216h12l4.102-10.214c.234-.481.722-.786 1.256-.786h.642v-2zm-14 5c0-.552-.447-1-1-1s-1 .448-1 1v3c0 .552.447 1 1 1s1-.448 1-1v-3zm3 0c0-.552-.447-1-1-1s-1 .448-1 1v3c0 .552.447 1 1 1s1-.448 1-1v-3zm3 0c0-.552-.447-1-1-1s-1 .448-1 1v3c0 .552.447 1 1 1s1-.448 1-1v-3z"/></svg>
                               <span>Warenkorb</span><div> (${finalSum}) €</div></div>
                     </button> 
@@ -206,17 +206,17 @@ function openBasketFullscreen() {
     document.getElementById("dialog").classList.remove('d-none');
     /* hideEmptyBasket(); */
     document.getElementById("dialog").innerHTML = `
-    <div id="basket_fullscreen" class="dialog">
-    <div class="basket_close">
+    <div id="basket-fullscreen" class="dialog">
+    <div class="basket-close">
     <a href="##" onclick="closeFullscreen()"><img src="img/close.png" alt=""></a>
     
     </div>
    
     
-    <span class="text_align_center">
+    <span class="text-align-center">
         <h2>Warenkorb</h2>
     </span>
-    <div id="default_basket" class="empty_basket">
+    <div id="default-basket" class="empty-basket">
         <img src="img/bag.png" alt="">
         <h2>Fülle deinen Warenkorb</h2>
         Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
@@ -232,21 +232,21 @@ hideEmptyBasket();
         basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
         sum += basket[i]['counter'] * basket[i]['price'];
         document.getElementById("basket-dishes").innerHTML += `
-            <div class="basket_dish">
-                <div class="basket_value_name">
+            <div class="basket-dish">
+                <div class="basket-value-name">
                     <div>${basket[i]['counter']}</div>  
                     <div>${basket[i]['name']}</div> 
                 </div>
-                <div class="basket_dishes_price">
+                <div class="basket-dishes-price">
                     <span>${basket[i]['price']} €</span> 
                 </div>
             </div>  
-            <div class="basket_plus_minus_buttons">
+            <div class="basket-plus-minus-buttons">
                     <a href="##" onclick="removeFromBasket(${i});">
-                        <img src="img/minus.png" class="plus_basket">
+                        <img src="img/minus.png" class="plus-basket">
                     </a>
                     <a href="##" onclick="increaseValue(${i});">
-                        <img src="img/plus.png" class="plus_basket">
+                        <img src="img/plus.png" class="plus-basket">
                     </a>
             </div>
             `;
@@ -256,15 +256,15 @@ hideEmptyBasket();
     sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
     finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
     document.getElementById("basket-prices").innerHTML = ` 
-        <div class="space_between">
+        <div class="space-between">
             <div>Zwischensumme</div>
             <div>${sum} €</div>
         </div>
-        <div class="space_between">
+        <div class="space-between">
             <div>Lieferkosten</div>
             <div>1€</div>
         </div>
-        <div class="space_between">
+        <div class="space-between">
             <div>Gesamt</div>
             <div>${finalSum} €</div>
         </div>
@@ -278,17 +278,17 @@ function closeFullscreen() {
 /* function openBasketFullscreen() {
    
     document.getElementById("content").innerHTML = `
-    <div id="basket_fullscreen">
-    <div class="basket_close">
+    <div id="basket-fullscreen">
+    <div class="basket-close">
     <a href="##" onclick="closeFullscreen()"><img src="img/close.png" alt=""></a>
     
     </div>
    
 
-    <span class="text_align_center">
+    <span class="text-align-center">
         <h2>Warenkorb</h2>
     </span>
-    <div id="default_basket" class="empty_basket">
+    <div id="default-basket" class="empty-basket">
         <img src="img/bag.png" alt="">
         <h2>Fülle deinen Warenkorb</h2>
         Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
@@ -304,21 +304,21 @@ function closeFullscreen() {
         basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
         sum += basket[i]['counter'] * basket[i]['price'];
         document.getElementById("basket-dishes").innerHTML += `
-            <div class="basket_dish">
-                <div class="basket_value_name">
+            <div class="basket-dish">
+                <div class="basket-value-name">
                     <div>${basket[i]['counter']}</div>  
                     <div>${basket[i]['name']}</div> 
                 </div>
-                <div class="basket_dishes_price">
+                <div class="basket-dishes-price">
                     <span>${basket[i]['price']} €</span> 
                 </div>
             </div>  
-            <div class="basket_plus_minus_buttons">
+            <div class="basket-plus-minus-buttons">
                     <a href="##" onclick="removeFromBasket(${i});">
-                        <img src="img/minus.png" class="plus_basket">
+                        <img src="img/minus.png" class="plus-basket">
                     </a>
                     <a href="##" onclick="increaseValue(${i});">
-                        <img src="img/plus.png" class="plus_basket">
+                        <img src="img/plus.png" class="plus-basket">
                     </a>
             </div>
             `;
@@ -327,15 +327,15 @@ function closeFullscreen() {
     sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2)
     finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2)
     document.getElementById("basket-prices").innerHTML = ` 
-        <div class="space_between">
+        <div class="space-between">
             <div>Zwischensumme</div>
             <div>${sum} €</div>
         </div>
-        <div class="space_between">
+        <div class="space-between">
             <div>Lieferkosten</div>
             <div>1€</div>
         </div>
-        <div class="space_between">
+        <div class="space-between">
             <div>Gesamt</div>
             <div>${finalSum} €</div>
         </div>
@@ -345,5 +345,5 @@ function closeFullscreen() {
 
 
 /* function closeFullscreen(){
-    document.getElementById("basket_fullscreen").classList.add('d-none');
+    document.getElementById("basket-fullscreen").classList.add('d-none');
 } */

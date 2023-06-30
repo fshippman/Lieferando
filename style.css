@@ -239,7 +239,7 @@ a {
     margin-top: 18.720px;
 }
 
-#right_side {
+#right-side {
     display: flex;
     flex-direction: column;
     position: -webkit-sticky;
@@ -254,7 +254,7 @@ a {
     background-color: white;
 }
 
-.empty_basket {
+.empty-basket {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -263,18 +263,18 @@ a {
 }
 
 
-.basket_value_name {
+.basket-value-name {
     display: flex;
     gap: 16px;
 }
 
-.basket_dish {
+.basket-dish {
     display: flex;
     justify-content: space-between;
 
 }
 
-.basket_plus_minus_buttons {
+.basket-plus-minus-buttons {
     display: flex;
     justify-content: flex-end;
     gap: 32px;
@@ -283,7 +283,7 @@ a {
 
 }
 
-.basket_plus_minus_buttons img {
+.basket-plus-minus-buttons img {
     height: 24px;
     width: 24px;
     border-radius: 8px;
@@ -291,11 +291,11 @@ a {
 
 }
 
-.right_side h2 {
+.right-side h2 {
     margin: 20px;
 }
 
-.text_align_center {
+.text-align-center {
     text-align: center;
 }
 
@@ -315,7 +315,7 @@ a {
     display: none;
 }
 
-.space_between {
+.space-between {
     display: flex;
     justify-content: space-between;
 }
@@ -324,7 +324,7 @@ a {
     height: 100px;
 }
 
-#responsive_basket_section {
+#responsive-basket-section {
     bottom: 0;
     left: 0;
     padding: 8px;
@@ -349,11 +349,11 @@ button :hover {
     cursor: pointer;
 }
 
-.padding_bottom {
+.padding-bottom {
     padding-bottom: 24px;
 }
 
-#basket_fullscreen {
+#basket-fullscreen {
 
     height: 100vh;
     width: 100%;
@@ -368,7 +368,7 @@ button :hover {
 
 }
 
-.content_basket_fullscreen {
+.content-basket-fullscreen {
     display: block;
     height: 100%;
     width: 100%;
@@ -380,7 +380,7 @@ button :hover {
     position: fixed;
 }
 
-.button_content {
+.button-content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -390,11 +390,11 @@ button :hover {
     gap: 8px;
 }
 
-.button_content svg path {
+.button-content svg path {
     fill: currentColor;
 }
 
-.basket_close {
+.basket-close {
     display: flex;
     flex-direction: row-reverse;
 }
@@ -430,7 +430,7 @@ button :hover {
     justify-content: flex-end;
 }
 
-.responsive-basket-button__flexbox {
+.responsive-basket-button--flexbox {
     display: flex;
 }
 
@@ -460,11 +460,11 @@ button :hover {
         width: 650px;
     }
 
-    #right_side {
+    #right-side {
         display: none;
     }
 
-    #responsive_basket_section {
+    #responsive-basket-section {
         bottom: 0;
         left: 0;
         padding: 8px;
@@ -480,13 +480,13 @@ button :hover {
         flex-wrap: nowrap;
     }
 
-    #responsive_basket_section button {
+    #responsive-basket-section button {
         width: 95%;
         height: 100%;
 
     }
 
-    #basket_fullscreen {
+    #basket-fullscreen {
         width: auto;
         height: auto;
     }
