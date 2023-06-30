@@ -204,6 +204,13 @@ a {
 
 .headline-left {
     width: 700px;
+    display: flex;
+    padding-left: -8px;
+}
+
+#menu {
+    margin: 8px 16px 8px 16px;
+    padding: 16px;
 }
 
 .card {
@@ -213,7 +220,7 @@ a {
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    margin: 8px 16px 8px 16px;
+    margin: 8px 0px 8px 0px;
     padding: 16px;
 
 }
@@ -432,12 +439,24 @@ button :hover {
     }
 }
 
+.headline-left {
+    width: 680px;
+}
+
 @media(max-width: 768px) {
 
     ::-webkit-scrollbar {
         display: none;
     }
 
+    .card {
+        width: 650px;
+    }
+
+
+    .headline-left {
+        width: 650px;
+    }
 
     #right_side {
         display: none;

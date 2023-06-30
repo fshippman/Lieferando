@@ -52,10 +52,10 @@ let foods = [{
 
 
 function show() {
-    document.getElementById('left').innerHTML += '';
+    document.getElementById('menu').innerHTML += '';
     for (let i = 0; i < foods.length; i++) {
         const food = foods[i];
-        document.getElementById('left').innerHTML += createShowHTML(i);
+        document.getElementById('menu').innerHTML += createShowHTML(i);
     }
 }
 
