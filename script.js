@@ -38,13 +38,13 @@ let foods = [{
     'price': '8.50',
 },
 {
-    'name': 'Spinaci',
+    'name': 'Pizza Spinaci',
     'description': 'mit Spinat und Knoblauch',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '8.50',
 },
 {
-    'name': 'Diabolo',
+    'name': 'Pizza Diabolo',
     'description': 'mit Salami und Peperoni',
     'choice': 'Wahl aus: Klein, Ø 24cm, Normal, Ø 29cm oder Familia, Ø 40cm',
     'price': '8.80',
