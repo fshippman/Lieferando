@@ -428,8 +428,10 @@ button :hover {
 .dialog-exit {
     display: flex;
     justify-content: flex-end;
+}
 
-
+.responsive-basket-button__flexbox {
+    display: flex;
 }
 
 
@@ -468,11 +470,20 @@ button :hover {
         padding: 8px;
         position: fixed;
         z-index: 5;
-        width: 768px;
+        width: 100%;
+        padding: 12px 0px 12px 0px;
         background-color: white;
         border: 1px solid;
         border-color: rgba(0, 0, 0, 0.062);
-        display: block;
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    #responsive_basket_section button {
+        width: 95%;
+        height: 100%;
+
     }
 
     #basket_fullscreen {
@@ -481,8 +492,96 @@ button :hover {
     }
 }
 
-@media(max-width: 610px) {}
+@media(max-width: 700px) {
+    .card {
+        width: 540px;
+    }
 
-@media(max-width: 480px) {}
+    .info {
+        width: 540px;
+    }
+}
 
-@media(max-width: 280px) {}
+@media(max-width: 620px) {
+    .card {
+        width: 500px;
+    }
+
+    .info {
+        width: 500px;
+    }
+}
+
+@media(max-width: 540px) {
+    .card {
+        width: 430px;
+    }
+
+    .info {
+        width: 430px;
+    }
+}
+
+@media(max-width: 480px) {
+    .card {
+        width: 380px;
+    }
+
+    .info {
+        width: 380px;
+    }
+
+}
+
+@media(max-width: 410px) {
+    .card {
+        width: 300px;
+    }
+
+    .info {
+        width: 300px;
+    }
+
+    .delivery-container {
+        width: 250px;
+        flex-wrap: wrap !important;
+    }
+}
+
+@media(max-width: 360px) {
+    .card {
+        width: 250px;
+    }
+
+    .info {
+        width: 250px;
+    }
+
+    #menu {
+        margin: 4px 8px 4px 8px;
+        padding: 8px;
+    }
+}
+
+
+@media(max-width: 280px) {
+    .card {
+        width: 230px;
+        padding: 4px;
+    }
+
+    .info {
+        width: 230px;
+        padding: 8px;
+    }
+
+    #menu {
+        margin: 2px 4px 2px 4px;
+        padding: 8px;
+    }
+
+    .header h2 {
+        margin: 12px;
+    }
+
+}
