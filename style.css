@@ -312,7 +312,10 @@ a {
 }
 
 .d-none {
-    display: none;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .space-between {
@@ -334,7 +337,8 @@ a {
     background-color: white;
     border: 1px solid;
     border-color: rgba(0, 0, 0, 0.062);
-    display: none;
+    visibility: hidden;
+    height: 46;
 }
 
 button {
@@ -353,8 +357,7 @@ button :hover {
     padding-bottom: 24px;
 }
 
-#basket-fullscreen {
-
+#basket-mobile {
     height: 100vh;
     width: 100%;
     min-height: 100%;
@@ -365,7 +368,6 @@ button :hover {
     bottom: 0;
     position: inherit;
     padding: 24px;
-
 }
 
 .content-basket-fullscreen {
@@ -439,10 +441,10 @@ button :hover {
     .card {
         width: 680px;
     }
-}
 
-.headline-left {
-    width: 680px;
+    .headline-left {
+        width: 680px;
+    }
 }
 
 @media(max-width: 768px) {
@@ -461,7 +463,8 @@ button :hover {
     }
 
     #right-side {
-        display: none;
+        visibility: hidden;
+        height: 0;
     }
 
     #responsive-basket-section {
@@ -478,15 +481,16 @@ button :hover {
         display: flex;
         justify-content: center;
         flex-wrap: nowrap;
+        visibility: visible;
+
     }
 
     #responsive-basket-section button {
         width: 95%;
         height: 100%;
-
     }
 
-    #basket-fullscreen {
+    #basket-mobile {
         width: auto;
         height: auto;
     }
