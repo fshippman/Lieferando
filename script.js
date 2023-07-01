@@ -77,7 +77,7 @@ function createShowHTML(i) {
             <div>${food['choice']}</div>
             <span>${price}</span>
         </div>
-      <img src="img/plus.png" class="plus">
+        <img src="img/plus.png" class="plus">
     </div>
     `;
 }
@@ -97,8 +97,8 @@ function addToBasket(name, price) {
     } else {
         basket[index]['counter']++;
     }
-    createResponsiveBasketSection();
     updateShoppingBasket();
+    createResponsiveBasketSection();
 }
 
 
@@ -128,14 +128,7 @@ function updateShoppingBasket() {
 function updateShoppingBasketByIds(basketId, basketPricesId, defaultBasketId) {
     let basketDishes = document.getElementById(basketId);
     let basketPrices = document.getElementById(basketPricesId);
-    if (basketDishes == null || basketDishes === 'undefined') {
-        console.log('basketId is undefined!!!!');
-        return;
-    }
-    if (basketPrices == null || basketPrices === 'undefined') {
-            console.log('basketPricesId is undefined!!!!');
-            return;
-        }
+
     basketDishes.innerHTML = '';
     if (basket.length < 1) {
         basketPrices.innerHTML = '';
@@ -168,12 +161,12 @@ function createBasketHTML(basket, i) {
            </div>
        </div>
        <div class="basket-plus-minus-buttons">
-               <a href="##" onclick="removeFromBasket(${i});">
-                   <img src="img/minus.png" class="plus-basket">
-               </a>
-               <a href="##" onclick="increaseValue(${i});">
-                   <img src="img/plus.png" class="plus-basket">
-               </a>
+           <a href="##" onclick="removeFromBasket(${i});">
+               <img src="img/minus.png" class="plus-basket">
+           </a>
+           <a href="##" onclick="increaseValue(${i});">
+               <img src="img/plus.png" class="plus-basket">
+           </a>
        </div>
        `;
 }
@@ -198,29 +191,18 @@ function generateCostOverviewHTML(sum, finalSum){
 
 
 function showEmptyBasket(defaultBasketId) {
-    let defaultBasket = document.getElementById(defaultBasketId);
-    if (defaultBasket == null || defaultBasket === 'undefined') {
-        console.log('defaultBasketId is undefined in show!!!!');
-        return;
-    }
-    defaultBasket.classList.remove('d-none');
+    document.getElementById(defaultBasketId).classList.remove('d-none');
 }
 
 
 function hideEmptyBasket(defaultBasketId) {
-    let defaultBasket = document.getElementById(defaultBasketId);
-    if (defaultBasket == null || defaultBasket === 'undefined') {
-        console.log('defaultBasketId is undefined in hide!!!!');
-        return;
-    }
-    defaultBasket.classList.add('d-none');
+    document.getElementById(defaultBasketId).classList.add('d-none');
 }
 
 //------------------------------MOBILE------------------------------
 
 function createResponsiveBasketSection() {
     let sum = 0;
-
     for (let i = 0; i < basket.length; i++) {
         basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
         sum += basket[i]['counter'] * basket[i]['price'];
