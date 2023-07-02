@@ -1,8 +1,7 @@
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
-    for (let i = 0; i < includeElements.length; i++) {
-        const element = includeElements[i];
-        file = element.getAttribute("w3-include-html"); // "includes/header.html"
+    for (const element of includeElements) {
+        const file = element.getAttribute("w3-include-html"); // "includes/header.html"
         let resp = await fetch(file);
         if (resp.ok) {
             element.innerHTML = await resp.text();
@@ -56,16 +55,14 @@ let foods = [{
 function show() {
     let menu = document.getElementById('menu');
     menu.innerHTML += '';
-    for (let i = 0; i < foods.length; i++) {
-        const food = foods[i];
-        menu.innerHTML += createShowHTML(i);
+    for (let food of foods) {
+        menu.innerHTML += createShowHTML(food);
     }
     updateShoppingBasket();
 }
 
 
-function createShowHTML(i) {
-    const food = foods[i];
+function createShowHTML(food) {
     const name = food['name'];
     const price = food['price'];
 
@@ -202,16 +199,22 @@ function hideEmptyBasket(defaultBasketId) {
 //------------------------------MOBILE------------------------------
 
 function createResponsiveBasketSection() {
-    let sum = 0;
-    for (let i = 0; i < basket.length; i++) {
-        basket[i]['price'] = parseFloat(basket[i]['price']).toFixed(2);
-        sum += basket[i]['counter'] * basket[i]['price'];
-    }
-    let finalSum = sum + 1;
-    sum = parseFloat(Math.round(sum * 100) / 100).toFixed(2);
-    finalSum = parseFloat(Math.round(finalSum * 100) / 100).toFixed(2);
+    let responsiveSection = document.getElementById("responsive-basket-section");
 
-    document.getElementById("responsive-basket-section").innerHTML = renderResponsiveButton(finalSum);
+    if (basket.length === 0) {
+        responsiveSection.classList.add('d-none');
+        responsiveSection.innerHTML = '';
+        return;
+    }
+
+    responsiveSection.classList.remove('d-none');
+    let sum = 0;
+    for (let dish of basket) {
+        dish['price'] = parseFloat(dish['price']).toFixed(2);
+        sum += dish['counter'] * dish['price'];
+    }
+    let finalSum = parseFloat(Math.round((sum + 1) * 100) / 100).toFixed(2);
+    responsiveSection.innerHTML = renderResponsiveButton(finalSum);
 }
 
 
@@ -239,4 +242,5 @@ function openBasketFullscreen() {
 
 function closeFullscreen() {
     document.getElementById("dialog").classList.add('d-none');
+    createResponsiveBasketSection();
 }

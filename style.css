@@ -312,10 +312,10 @@ a {
 }
 
 .d-none {
-    visibility: hidden;
-    height: 0;
-    padding: 0;
-    margin: 0;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .space-between {
@@ -338,7 +338,7 @@ a {
     border: 1px solid;
     border-color: rgba(0, 0, 0, 0.062);
     visibility: hidden;
-    height: 46;
+    height: 0px;
 }
 
 button {
@@ -445,6 +445,11 @@ button :hover {
     .headline-left {
         width: 680px;
     }
+
+    #responsive-basket-section {
+        visibility: hidden;
+        height: 0px;
+    }
 }
 
 @media(max-width: 768px) {
@@ -470,7 +475,7 @@ button :hover {
     #responsive-basket-section {
         bottom: 0;
         left: 0;
-        padding: 8px;
+        /*padding: 8px;*/
         position: fixed;
         z-index: 5;
         width: 100%;
@@ -482,7 +487,7 @@ button :hover {
         justify-content: center;
         flex-wrap: nowrap;
         visibility: visible;
-
+        height: 46px;
     }
 
     #responsive-basket-section button {
