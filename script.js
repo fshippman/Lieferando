@@ -59,6 +59,7 @@ function show() {
         menu.innerHTML += createShowHTML(food);
     }
     updateShoppingBasket();
+    createResponsiveBasketSection();
 }
 
 
