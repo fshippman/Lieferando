@@ -81,8 +81,8 @@ function createShowHTML(food) {
 //--------------------------------BASKET--------------------------------
 
 function addToBasket(name, price) {
-    let index = basket.findIndex(basketelement => {
-        return basketelement.name === name;
+    let index = basket.findIndex(basketElement => {
+        return basketElement.name === name;
     })
     if (index === -1) {
         basket.push({
@@ -102,14 +102,15 @@ function removeFromBasket(i) {
     if (basket[i]['counter'] > 1) {
         basket[i]['counter']--;
     } else {
-        basket.splice(i, 1)
+        basket.splice(i, 1);
     }
     updateShoppingBasket();
+    createResponsiveBasketSection();
 }
 
 
 function increaseValue(i) {
-    basket[i]['counter']++
+    basket[i]['counter']++;
     updateShoppingBasket();
 }
 
