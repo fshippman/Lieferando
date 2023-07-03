@@ -1,107 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lieferbande</title>
-    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lieferbande</title>
+        <link rel="icon" href="img/favicon.png" type="image/x-icon">
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="font.css">
+    </head>
 
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="font.css">
-</head>
-
-<body onload="includeHTML(); show();">
-
-    <div w3-include-html="templates/header.html"></div>
-
-
-    <div id="dialog" class="dialog-bg d-none">
-        <div class="dialog"></div>
-    </div>
-
-
-    <div class="container">
-
-
-        <div id="content">
-
-            <div id="left">
-                <div class="stack">
-                    <div class="pizza-picture">
-                        <img src="img/pizza.jpg" alt="">
-                    </div>
+    <body onload="includeHTML(); show();">
+        <div w3-include-html="templates/header.html"></div>
+        <div id="dialog" class="dialog-bg d-none">
+            <div id="basket-mobile" class="dialog">
+                <div class="basket-close">
+                    <a href="##" onclick="closeFullscreen()">
+                        <img src="img/close.png" alt=""/>
+                    </a>
                 </div>
-
-                <div class="info-bg">
-                    <div class="info">
-                        <div class="headline">
-                            <h1>Pizzeria 123</h1>
-                        </div>
-                        <div class="rating-container">
-                            <div class="pizza-logo">
-                                <img src="img/pizza-logo.jpg" alt="">
-                            </div>
-                            <div class="ratings">
-                                <div class="stars">
-                                    <img src="img/star.png" alt="">
-                                    <img src="img/star.png" alt="">
-                                    <img src="img/star.png" alt="">
-                                    <img src="img/star.png" alt="">
-                                    <img src="img/halfstar.png" alt="">
-                                </div>
-                                <div class="rating-count"><a href="#">1.5k Bewertungen</a></div>
-                            </div>
-                        </div>
-                        <div class="delivery-container">
-                            <div class="align-center"><img src="img/time.png" alt="">20-45 min •</div>
-                            <div class="align-center green bike"><img src="img/bike.png" alt="">Kostenlos •</div>
-                            <div class="align-center"><img src="img/bag.png" alt="">Min. 10,00 € </div>
-                        </div>
-                        <div class="description">
-                            Beste Pizzen der Lieferbande, schneller geliefert, als die Polizei erlaubt.
-                        </div>
-                    </div>
-                </div>
-
-
-                <div id="menu">
-                    <div class="menu-category">
-                        <h2>Pizza</h2>
-                    </div>
-                </div>
-
-
-
-
-
-
-            </div>
-
-            <div id="right-side">
-                <span class="text-align-center">
-                    <h2>Warenkorb</h2>
-                </span>
-                <div id="default-basket" class="empty-basket">
+                <span class="text-align-center"><h2>Warenkorb</h2></span>
+                <div id="default-basket-mobile" class="empty-basket">
                     <img src="img/bag.png" alt="">
                     <h2>Fülle deinen Warenkorb</h2>
                     Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
                 </div>
-                <div id="basket-dishes"></div>
-                <div id="basket-prices"></div>
+                <div id="basket-dishes-mobile"></div>
+                <div id="basket-prices-mobile"></div>
             </div>
-
         </div>
-        <div id="responsive-basket-section"></div>
+        <div class="container">
+            <div id="content">
+                <div id="left">
+                    <div class="stack">
+                        <div class="pizza-picture">
+                            <img src="img/pizza.jpg" alt="">
+                        </div>
+                    </div>
 
-    </div>
-
-
-    <div w3-include-html="templates/footer.html"></div>
-
-
-</body>
-
+                    <div class="info-bg">
+                        <div class="info">
+                            <div class="headline">
+                                <h1>Pizzeria Napolitano</h1>
+                            </div>
+                            <div class="rating-container">
+                                <div class="pizza-logo">
+                                    <img src="img/pizza-logo.jpg" alt="">
+                                </div>
+                                <div class="ratings">
+                                    <div class="stars">
+                                        <img src="img/star.png" alt="">
+                                        <img src="img/star.png" alt="">
+                                        <img src="img/star.png" alt="">
+                                        <img src="img/star.png" alt="">
+                                        <img src="img/halfstar.png" alt="">
+                                    </div>
+                                    <div class="rating-count">
+                                        <a href="#">1.5k Bewertungen</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="delivery-container">
+                                <div class="align-center"><img src="img/time.png" alt="">20-45 min •</div>
+                                <div class="align-center green bike"><img src="img/bike.png" alt="">Kostenlos •</div>
+                                <div class="align-center"><img src="img/bag.png" alt="">Min. 10,00 €</div>
+                            </div>
+                            <div class="description">
+                                Wir liefern schneller als die Polizei, denn wir beschäftigen nur die besten umgeschulten Fluchtwagenfahrer.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="menu">
+                        <div class="menu-category">
+                            <h2>Pizza</h2>
+                        </div>
+                    </div>
+                </div>
+                <div id="right-side">
+                    <span class="text-align-center"><h2>Warenkorb</h2></span>
+                    <div id="default-basket" class="empty-basket">
+                        <img src="img/bag.png" alt="">
+                        <h2>Fülle deinen Warenkorb</h2>
+                        Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
+                    </div>
+                    <div id="basket-dishes"></div>
+                    <div id="basket-prices"></div>
+                </div>
+            </div>
+            <div id="responsive-basket-section"></div>
+        </div>
+        <div w3-include-html="templates/footer.html"></div>
+    </body>
 </html>
